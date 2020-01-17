@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  install:
+    commands:
+    - git clone -b $GITHUB_BRANCH --single-branch https://github.com/$GITHUB_ORG_REPO.git ./$GITHUB_SOURCE_BASE_DIR
+  build:
+    commands:
+    - tar -czf $GITHUB_SOURCE_TAR ./$GITHUB_SOURCE_BASE_DIR
+artifacts:
+  files:
+  - "$GITHUB_SOURCE_TAR"
